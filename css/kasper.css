@@ -117,6 +117,7 @@ header .container nav .toggle-bars {
     color: var(--mainTextColor);
     font-size: 30px;
     padding: 10px 20px;
+    cursor: pointer;
     display: none;
 }
 @media (max-width: 1199px) {
@@ -186,9 +187,10 @@ header .container nav .search-icon {
 /* Start Landing */
 .landing {
     height: 100vh;
-    background-image: url(../images/landing.jpg);
+    background-image: url(../images/landing-1.jpg);
     background-size: cover;
     position: relative;
+    transition: background-image 3s linear;
 }
 .landing .overlay {
     width: 100%;
