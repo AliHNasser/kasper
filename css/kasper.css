@@ -83,7 +83,7 @@ ul {
 /* End Components */
 /* Start Header */
 header {
-    position: absolute;
+    position: fixed;
     left: 0;
     width: 100%;
     z-index: 2;
@@ -200,30 +200,6 @@ header .container nav .search-icon {
     left: 0;
     top: 0;
 }
-.landing .arrow-left {
-    color: var(--mainTextColor);
-    font-size: 30px;
-    position: absolute;
-    top: 50%;
-    left: 30px;
-    transform: translateY(-50%);
-    z-index: 2;
-}
-.landing .arrow-right {
-    color: var(--mainTextColor);
-    font-size: 30px;
-    position: absolute;
-    top: 50%;
-    right: 30px;
-    transform: translateY(-50%);
-    z-index: 2;
-}
-@media (max-width: 767px) {
-    .landing .arrow-left,
-    .landing .arrow-right {
-        display: none;
-    }
-}
 .landing .content {
     position: absolute;
     left: 0;
@@ -234,6 +210,7 @@ header .container nav .search-icon {
     background-color: var(--transparent-main-color);
     display: flex;
     justify-content: flex-end;
+    z-index: 1;
 }
 .landing .content .text {
     width: 600px;
@@ -365,7 +342,7 @@ header .container nav .search-icon {
 .design .text {
     flex: 1;
     position: relative;
-    z-index: 2;
+    z-index: 1;
     padding: 40px;
 }
 .design .text {
