@@ -272,8 +272,7 @@ header .container nav .search-icon {
     margin-top: 60px;
     display: grid;
     grid-template-columns: repeat(auto-fill, minmax(500px, 1fr));
-    column-gap: 60px;
-    row-gap: 40px;
+    gap: 40px;
 }
 @media (max-width: 1199px) {
     .services .services-container {
@@ -283,6 +282,14 @@ header .container nav .search-icon {
 }
 .services .services-container .srv-box {
     display: flex;
+    padding: 20px;
+    border: 2px solid var(--mainTextColor);
+    border-radius: 6px;
+}
+.services .services-container .srv-box .icon {
+    display: flex;
+    justify-content: center;
+    align-items: center;
 }
 .services .services-container .srv-box .icon i {
     font-size: 50px;
@@ -389,18 +396,41 @@ header .container nav .search-icon {
     transition: var(--transitionDuration);
     margin: 0 10px;
     color: #777;
+    cursor: pointer;
 }
 .portfolio .container .shuffle ul li:hover {
     background-color: var(--mainColor);
     color: var(--mainTextColor);
 }
-@media (max-width: 768px) {
+@media (max-width: 767px) {
     .portfolio .container .shuffle ul {
         flex-wrap: wrap;
         justify-content: center;
     }
     .portfolio .container .shuffle ul li {
-        margin: 0 5px;
+        flex-basis: 100%;
+        padding: 20px;
+        background-color: var(--mainTextColor);
+        font-size: 1.2rem;
+        text-align: center;
+        margin: 0 0 20px;
+        border-radius: 6px;
+    }
+}
+@media (min-width: 768px) and (max-width: 1199px) {
+    .portfolio .container .shuffle ul {
+        flex-wrap: wrap;
+        gap: 20px;
+    }
+    .portfolio .container .shuffle ul li {
+        flex-basis: calc((100% - 40px) / 3);
+        flex-grow: 1;
+        padding: 20px;
+        background-color: var(--mainTextColor);
+        font-size: 1.2rem;
+        text-align: center;
+        margin: 0;
+        border-radius: 6px;
     }
 }
 .portfolio .images-container {
@@ -480,7 +510,7 @@ header .container nav .search-icon {
 .video-section video {
     width: 100%;
 }
-.video-section .text {
+.video-section .video .text {
     position: absolute;
     top: 50%;
     width: 100%;
@@ -490,16 +520,16 @@ header .container nav .search-icon {
     background-color: var(--transparent-main-color);
     color: var(--mainTextColor);
 }
-.video-section .text h3 {
+.video-section .video .text h3 {
     font-weight: normal;
     font-size: 22px;
     padding: 0 0 30px;
 }
-.video-section .text p {
+.video-section .video .text p {
     font-size: 14px;
     padding: 0 0 40px;
 }
-.video-section .text button {
+.video-section .video .text button {
     background-color: rgb(0 0 0 / 75%);
     color: var(--mainTextColor);
     border: none;
@@ -507,14 +537,14 @@ header .container nav .search-icon {
     font-size: 14px;
 }
 @media (max-width: 767px) {
-    .video-section .text {
+    .video-section .video .text {
         padding: 30px;
     }
-    .video-section .text h3 {
+    .video-section .video .text h3 {
         padding: 0 0 10px;
         font-size: 19px;
     }
-    .video-section .text p {
+    .video-section .video .text p {
         padding: 0 0 20px;
     }
 }
@@ -842,6 +872,7 @@ header .container nav .search-icon {
     padding: 30px 0px;
 }
 .pricing .container .plans .plan .footer a {
+    position: relative;
     text-decoration: none;
     padding: 10px 30px;
     border: 2px solid var(--mainColor);
@@ -849,6 +880,24 @@ header .container nav .search-icon {
     display: block;
     width: fit-content;
     margin: 10px auto;
+    transition: color var(--transitionDuration);
+}
+.pricing .container .plans .plan .footer a:hover {
+    color: var(--mainTextColor);
+}
+.pricing .container .plans .plan .footer a::before {
+    content: "";
+    position: absolute;
+    width: 0;
+    height: 100%;
+    top: 0;
+    left: 0;
+    background-color: var(--mainColor);
+    transition: width var(--transitionDuration);
+    z-index: -1;
+}
+.pricing .container .plans .plan .footer a:hover::before {
+    width: 100%;
 }
 .pricing .container .text p {
     padding: 40px 0;
@@ -975,6 +1024,7 @@ header .container nav .search-icon {
     margin-bottom: 40px;
     border: 1px solid #ccc;
     color: #333;
+    resize: none;
 }
 .contact .container .content form input[type="text"]::placeholder,
 .contact .container .content form input[type="email"]::placeholder,

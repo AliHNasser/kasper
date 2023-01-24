@@ -44,3 +44,35 @@ let switchImage = setInterval(() => {
     }
 }, 4000)
 /* End Landing */
+/* Start Portfolio */
+const allTypes = document.querySelectorAll(".portfolio .container .shuffle ul li");
+const portfolioImages = document.querySelectorAll(".portfolio .images-container .img-box");
+
+allTypes.forEach((element) => {
+    if (element.getAttribute("imageType") === "all") {
+        element.addEventListener("click", () => {
+            document.querySelector(".portfolio .images-container").innerHTML = "";
+            let allImagesOfThisType = [];
+            portfolioImages.forEach((image) => {
+                allImagesOfThisType.push(image);
+            })
+            allImagesOfThisType.forEach((image) => {
+                document.querySelector(".portfolio .images-container").appendChild(image);
+            })
+        })
+    } else {
+        element.addEventListener("click", () => {
+            document.querySelector(".portfolio .images-container").innerHTML = "";
+            let allImagesOfThisType = [];
+            portfolioImages.forEach((image) => {
+                allImagesOfThisType.push(image);
+            })
+            allImagesOfThisType.forEach((ele) => {
+                if (ele.classList.contains(element.getAttribute("imageType"))) {
+                    document.querySelector(".portfolio .images-container").appendChild(ele);
+                }
+            })
+        })
+    }
+})
+/* End Portfolio */
